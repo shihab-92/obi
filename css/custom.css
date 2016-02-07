@@ -1,0 +1,82 @@
+body{
+	background:url("../image/presentation-compressed.jpg") no-repeat center center fixed;
+	background-size:cover;
+	width:100vw;
+	height: 100vh;
+}
+
+.wrapper{
+	width:100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.7);
+}
+
+.heading{
+	font-size: 4em;
+	opacity: 1;
+	color:white;
+	margin-top:15%;
+}
+.small-heading{
+	color:white;
+	margin-left: 1%;
+}
+
+.start_button{
+	margin-top: 2%;
+	padding: 2%;
+	background-color: transparent;
+	color: white;
+	border-radius: 35px;
+	border:.5px solid white;
+	font-size: 1.5em;
+}
+
+.signup_login_panel{
+	margin-top:10%;
+	border:.5px solid white;
+}
+
+.input-design{
+	margin-top:1.5%;
+	margin-left:10%;
+	padding:5px;
+}
+.radius-fixing{
+	border-radius: 15px;
+}
+
+.input-style{
+	height: 38px;
+	padding: 6px 30px;
+	border-radius: 15px;
+}
+
+.signup_button{
+	padding: 5px;
+	height: 38px;
+	width: 71%;
+	border-radius: 15px;
+	margin-top:1.5%;
+	margin-left:12%;
+	background-color:#00a5bd;
+	color:white;
+	border-color: #00a5bd;
+	font-size: 1.4em;
+	transition:background-color .7s ease-in .3s;
+}
+
+.signup_button:hover{
+	background-color: #166ba2;
+}
+.agreement{
+	margin-left:12%;
+	color: white;
+}
+label.error{
+	display: none !important;
+}
+input.error{
+	border:1px solid red !important;
+	border-radius: 0px 15px 15px 0px  !important;
+}
