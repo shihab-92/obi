@@ -1,18 +1,24 @@
-body{
+.home{
 	background:url("../image/presentation-compressed.jpg") no-repeat center center fixed;
 	background-size:cover;
-	width:100vw;
-	height: 100vh;
+	width:100%;
+	height: 550px;
+}
+.use{
+	background:url("../image/presentation-compressed.jpg") no-repeat center center fixed;
+	background-size:cover;
+	width:100%;
+	height: 550px;
 }
 
 .wrapper{
 	width:100vw;
-	height: 100vh;
+	height: 550px;
 	background-color: rgba(0,0,0,.7);
 }
 
 .heading{
-	font-size: 4em;
+	font-size: 3.5em;
 	opacity: 1;
 	color:white;
 	margin-top:15%;
@@ -35,6 +41,7 @@ body{
 .signup_login_panel{
 	margin-top:10%;
 	border:.5px solid white;
+	border-radius: 5px;
 }
 
 .input-design{
@@ -79,4 +86,125 @@ label.error{
 input.error{
 	border:1px solid red !important;
 	border-radius: 0px 15px 15px 0px  !important;
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color: #e7e7e7;
+	border-bottom: solid 3px white;
+	border-top: none;
+	border-right:none;
+	border-left: none;
+}
+.navbar-default .navbar-nav > li > a{
+	color: white;
+}
+
+.navbar {
+	min-height: 75px;
+}
+.navbar-brand{
+	font-size: 2em !important;
+	color: white !important;
+	line-height: 60px !important;
+}
+@media(max-width: 768px){
+	.navbar-brand{
+		font-size: 2em !important;
+		color: white !important;
+		line-height: 20px !important;
+	}
+}
+.navbar-nav > li {
+	padding-top: 5% !important;
+	padding-bottom: 5% !important;
+	padding-left: 0em !important;
+	padding-right: 0em !important;
+	font-size: 1.5em !important;
+}
+
+@media(min-width: 290px) and (max-width: 1000px){
+	.input-style{
+		height: 38px;
+		width: 95% !important;
+		padding: 6px 2px;
+		border-radius: 15px;
+	}
+	.input-design{
+		margin-top:1.5%;
+		margin-left:0%;
+		padding:5px;
+	}
+}
+
+.facebook_button{
+	padding: 5px;
+	height: 38px;
+	width: 71%;
+	border-radius: 15px;
+	margin-top:1.5%;
+	margin-left:12%;
+	background-color:#3b5a95;
+	color:white;
+	border-color: #3b5a95;
+	font-size: 1.4em;
+	transition:background-color .7s ease-in .3s;
+}
+
+.facebook_button:hover{
+	background-color: #166ba2;
+}
+
+.or{
+	margin-top: 5%;
+	margin-left: 40%;
+	padding: 10px;
+	border-radius: 20px;
+	border-bottom:2px solid white;
+	width: 10%;
+	text-align: center;
+	color:white;
+}
+
+.top-menu-custom{
+	margin-left: 8% !important;
+	position: fixed !important;
+	top:0px !important;
+	left:0px !important;
+	z-index:9;
+	width: 85%;
+	background:grey;
+}
+
+@media(max-width: 768px){
+	.top-menu-custom{
+		margin-left: 0% !important;
+		position: fixed !important;
+		top:0px !important;
+		left:0px !important;
+		z-index:9;
+		width: 100%;
+		background:grey;
+	}
+}
+
+@media(min-width:290px ) and (max-width: 1200px){
+	.home{
+	background:url("../image/presentation-compressed.jpg") no-repeat center center fixed;
+	background-size:cover;
+	width:100%;
+	height: 740px;
+}
+.use{
+	background:url("../image/presentation-compressed.jpg") no-repeat center center fixed;
+	background-size:cover;
+	width:100%;
+	height: 740px;
+}
+
+.wrapper{
+	width:100vw;
+	height: 740px;
+	background-color: rgba(0,0,0,.7);
+}
 }
