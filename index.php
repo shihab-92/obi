@@ -69,7 +69,7 @@
     <div class="container">
       <div class="row">
          <div class="col-lg-8 pull-left">
-            <h1 class="heading">Real-time voting<br/><span style="color:#00a5bd;">to engage your participants.</span></h1>
+            <h1 class="heading2">Real-time voting<br/><span style="color:#00a5bd;">to engage your participants.</span></h1>
          </div>
       </div>
       <div class="row">
@@ -129,7 +129,7 @@
                      <a href='/powerpoint'>PowerPoint plug-in</a>
                   </li>
                   <li>
-                     <a href='/why'>Why Mentimeter</a>
+                     <a href='/why'>Why Surveyobi</a>
                   </li>
                </ul>
             </div>
@@ -181,27 +181,17 @@
             <ul class='social-links'>
                <li>
                   <a href='https://twitter.com/'>
-                     <i class="fa fa-twitter fa-2x"></i>
+                     <i class="fa fa-twitter fa-lg"></i>
                   </a>
                </li>
                <li>
                   <a href='https://www.facebook.com/'>
-                     <i class="fa fa-facebook fa-2x"></i>
+                     <i class="fa fa-facebook fa-lg"></i>
                   </a>
                </li>
                <li>
                   <a href='https://www.linkedin.com/company/'>
-                     <i class="fa fa-linkedin fa-2x"></i>
-                  </a>
-               </li>
-            </ul>
-         </div>
-         <div class='col-md-4 vote'>
-            <ul>
-               <li>
-                  <a href='#' target='_blank'>
-                     <i class="fa fa-mobile-phone fa-2x"></i>
-                     Go vote!
+                     <i class="fa fa-linkedin fa-lg"></i>
                   </a>
                </li>
             </ul>
