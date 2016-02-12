@@ -25,14 +25,14 @@
                   <ul class="nav navbar-nav navbar-right">
                      <li ><a href="./" >  Home</a></li>
                      <li ><a href="./pricing" >   Pricing</a></li>
-                     <li ><a href="#" >   login</a></li>
+                     <li ><a href="#" >   Login</a></li>
                      <li ><a href="#" >  Sign up</a></li>
                   </ul>
                </div>
             </div>
             <div class="row">
                <div class="col-lg-8 ">
-                  <h1 class="heading">Live polling with smartphone during presentation</h1>
+                  <h1 class="heading">Live Voting with smartphone during presentation</h1>
                   <h3 class="small-heading">Create interactive web-based presentation</h3>
                   <input type="button" value="Let's start !!" id="start" class="start_button hidden-xs hidden-sm hidden-md">
                </div>
@@ -60,6 +60,9 @@
                   </div>
                </form>
             </div>
+         </div>
+         <div class="row">
+            <input type="button" value="Go Vote!!" id="vote" class="vote_button ">
          </div>
       </div>
    </div>
