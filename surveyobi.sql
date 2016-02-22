@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2016 at 03:11 PM
+-- Generation Time: Feb 22, 2016 at 08:31 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -101,10 +101,11 @@ CREATE TABLE IF NOT EXISTS `survey` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(120) NOT NULL AUTO_INCREMENT,
-  `user_email` varchar(256) COLLATE utf8_bin NOT NULL,
+  `user_email` varchar(50) COLLATE utf8_bin NOT NULL,
   `user_name` varchar(256) COLLATE utf8_bin NOT NULL,
   `user_password` varchar(256) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_email` (`user_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

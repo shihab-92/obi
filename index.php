@@ -39,8 +39,7 @@
                <div class="col-lg-4  signup_login_panel hidden-lg visible-xs visible-sm visible-md">
                   <form id="signup_login_form" class="form-inline">
                      <div class="row">
-                      <input type="button" value="Facebook" id="facebook_login_signup" class="facebook_button" onClick="testAPI();"><br/>
-                      <div id="status"></div>
+                      <input type="button" value="Facebook" id="facebook_login_signup" class="facebook_button" onClick="login();"><br/>
                       <div class="or">or</div>
                    </div>
                    <div class="row">
@@ -218,6 +217,7 @@
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script>
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -227,51 +227,81 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      //console.log(response);
+      console.log("connected");
+      window.location.replace("./Events.php");
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      // document.getElementById('status').innerHTML = 'Please log ' +
-      //   'into this app.';
+      console.log("not authorized!!");
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      // document.getElementById('status').innerHTML = 'Please log ' +
-      //   'into Facebook.';
+      console.log("Please log in!!!!");
     }
-  }
-  function checkLoginState() {
-     FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-   });
   }
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '513840392122166',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-    FB.getLoginStatus(function(response) {
-       statusChangeCallback(response);
-    });
-  };
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.5' // use graph api version 2.5
+  });
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
 
-    function testAPI() {
-      FB.login(function(response) {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      document.getElementById('facebook_login_signup').value = 'Successful ';
-      console.log('Successful login for: ' + response.name);
-      window.location.assign("./Events.php");
-    });
-    });
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+};
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  
+  function login(){
+    FB.login(function(response) {
+
+      if (response.authResponse) {
+        console.log('Welcome!  Fetching your information.... ');
+            //console.log(response); // dump complete info
+            access_token = response.authResponse.accessToken; //get access token
+            user_id = response.authResponse.userID; //get FB UID
+
+            FB.api('/me','get',{fields: 'id,name,gender,email'}, function(response) {
+                user_email = response.email; //get user email
+
+                //console.log(user_email,response.gender,response.name);
+                console.log("logged in!!");
+                window.location.replace("./Events.php");
+          // you can store this data into your database             
+        });
+
+          } else {
+            //user hit cancel button
+            console.log('User cancelled login or did not fully authorize.');
+
+          }
+        }, {
+          scope: 'public_profile,email,user_friends'
+        });
   }
 </script>
 </body>
