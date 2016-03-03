@@ -80,9 +80,9 @@
 	border-radius: 15px;
 	margin-top:1.5%;
 	margin-left:12%;
-	background-color:#00a5bd;
+	background-color:rgba(51,153,255,1);
 	color:white;
-	border-color: #00a5bd;
+	border-color: rgba(51,153,255,1);
 	font-size: 1.4em;
 	transition:background-color .7s ease-in .3s;
 }
@@ -187,7 +187,8 @@ input.error{
 	left:-8% !important;
 	z-index:9;
 	width: 100%;
-	background:rgba(51,153,255,1);
+	background:black;
+	opacity: .9;
 }
 
 @media(max-width: 768px){

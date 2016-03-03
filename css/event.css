@@ -15,5 +15,20 @@
   .sidebar-nav .navbar li a {
     padding-top: 12px;
     padding-bottom: 12px;
+    font-size: 1.3em;
   }
+}
+
+.Event-user-name{
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.custom-create-event{
+  border-radius: 20px;
+  background-color: #1691be;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 7px 12px;
+  border:1px solid #1691be;
 }

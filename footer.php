@@ -76,8 +76,29 @@
 
                 //console.log(user_email,response.gender,response.name);
                 console.log("logged in!!");
+                // you can store this data into your database
+                var email =user_email;
+                var name =response.name;
+                var type ="facbook";
+                $.ajax({
+                  type:"post",
+                  url: "facebook-login.php",
+                  data:{
+                    "user_email":email,
+                    "user_name": name,
+                    "user_type": type
+                  },
+                  beforeSend: function(){
+                //TODO: dont know what to do yet
+              },
+              success:function(msg){
                 window.location.replace("./Events.php");
-          // you can store this data into your database             
+              },
+              error: function(){
+                alert("failure");
+              }
+
+            });             
         });
 
           } else {
