@@ -1,4 +1,8 @@
-<?php include('./header.php'); ?>
+<?php
+include('./header.php'); 
+include 'init.php'; 
+?>
+
 <body>
    <div class="home">
       <div class="wrapper">

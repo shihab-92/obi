@@ -15,6 +15,9 @@
 		$stmt2=$Database->prepare("UPDATE  users  SET user_email=?,user_name=?,user_type=? WHERE user_email=?");
 		$stmt2->bind_param('ssss',$email,$name,$type,$email);
 		$stmt2->execute();
+
+	$_SESSION['user_name']=$name;
+	var_dump($_SESSION['user_name']);
 	}
 
 	$stmt2=$Database->prepare("INSERT INTO users (user_email, user_name, user_type) VALUES (?, ?, ?)");
