@@ -15,7 +15,35 @@
       // Logged into your app and Facebook.
       //console.log(response);
       console.log("connected");
-      window.location.replace("./Events.php");
+            FB.api('/me','get',{fields: 'id,name,gender,email'}, function(response) {
+                user_email = response.email; //get user email
+
+                //console.log(user_email,response.gender,response.name);
+                console.log("logged in!!");
+                // you can store this data into your database
+                var email =user_email;
+                var name =response.name;
+                var type ="facbook";
+                $.ajax({
+                  type:"post",
+                  url: "facebook-login.php",
+                  data:{
+                    "user_email":email,
+                    "user_name": name,
+                    "user_type": type
+                  },
+                  beforeSend: function(){
+                //TODO: dont know what to do yet
+              },
+              success:function(msg){
+                window.location.replace("./Events.php");
+              },
+              error: function(){
+                alert("failure");
+              }
+
+            });             
+        });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       console.log("not authorized!!");
