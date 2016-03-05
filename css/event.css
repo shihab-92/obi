@@ -31,4 +31,54 @@
   font-size: 1.1em;
   padding: 7px 12px;
   border:1px solid #1691be;
+  margin-bottom: 5%;
+}
+
+.question-create{
+  border:1px solid #1691be;
+}
+
+.question-padding{
+
+  padding-top: 2%;
+}
+
+.set-width{
+  width:100px;
+  height: 70px;
+  padding: 3% 0% 3% 1%;
+  border:1px solid #999999;
+  border-radius: 5px;
+  float: left;
+  text-align: center;
+  margin-right: 4px;
+  margin-top: 2px;
+}
+
+.set-width >a{
+  color:#999999;
+}
+
+.set-width >a:hover{
+  text-decoration: underline;
+}
+
+.set-width >a:visited{
+  color:#999999;
+}
+
+.question-padding >input{
+  margin-bottom: 4px;
+  border-radius: 4px;
+  width: 87%;
+}
+
+.question-padding >input[type="button"]{
+  font-weight: bold;
+  font-size: 1.1em;
+  border:1px dashed #1691be;
+}
+
+.question-padding >input[type="button"]:hover{
+  background-color: ;
 }
