@@ -58,6 +58,12 @@
 	border-radius: 5px;
 }
 
+.login_panel{
+	margin-top:10%;
+	border:.5px solid white;
+	border-radius: 5px;
+}
+
 .input-design{
 	margin-top:1.5%;
 	margin-left:10%;

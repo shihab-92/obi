@@ -17,6 +17,7 @@
 		$stmt2->execute();
 
 	$_SESSION['user_name']=$name;
+	$_SESSION['user_type']=$type;
 	var_dump($_SESSION['user_name']);
 	}
 
@@ -29,5 +30,6 @@
 	$stmt2->close();
 
 	$_SESSION['user_name']=$name;
+	$_SESSION['user_type']=$type;
 	var_dump($_SESSION['user_name']);
  ?>
