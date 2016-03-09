@@ -1,10 +1,12 @@
 <?php
-   include('./header.php'); 
    include 'init.php';
+   include('./header.php'); 
    if(!empty($_SESSION['user_type']) && $_SESSION['user_type'] =='custom'){
-      header('location: ./Event.php');
+      header('location: ./Event.php', true, 302);ob_end_flush();exit;
+      //echo  '<META http-equiv="refresh" content="0;URL=./Event.php">';
    }else if(!empty($_SESSION['user_type']) && $_SESSION['user_type'] =='facbook'){
-      header('location: ./Events.php');
+      header('location: ./Events.php', true, 302);ob_end_flush();exit;
+     //echo  '<META http-equiv="refresh" content="0;URL=./Events.php">';
    }else{
    ?>
 <body>
