@@ -103,12 +103,12 @@ if($_SESSION['user_name'] != ''){
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       console.log("not authorized!!");
-      window.location.replace("../Surveyobi");
+      window.location.replace("/");
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
       console.log("Please log in!!!!");
-      window.location.replace("../Surveyobi");
+      window.location.replace("/");
     }
   }
   window.fbAsyncInit = function() {
@@ -159,7 +159,7 @@ if($_SESSION['user_name'] != ''){
                 //TODO: dont know what to do yet
             },
             success:function(msg){
-                window.location.replace("../Surveyobi");
+                window.location.replace("/");
             },
             error: function(){
                 alert("failure");
@@ -201,5 +201,5 @@ if($_SESSION['user_name'] != ''){
 <?php 
 
 }else{
-  header('location: ../Surveyobi');
+  header('location: /');
   } ?>

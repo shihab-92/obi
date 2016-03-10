@@ -118,7 +118,7 @@ if($_SESSION['user_name'] != ''){
                 //TODO: dont know what to do yet
               },
               success:function(msg){
-                window.location.replace("../Surveyobi");
+                window.location.replace("/");
               },
               error: function(){
                 alert("failure");
@@ -132,5 +132,5 @@ if($_SESSION['user_name'] != ''){
 <?php 
 
 }else{
-  header('location: ../Surveyobi');
+  header('location: /');
   } ?>

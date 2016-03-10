@@ -153,7 +153,7 @@
                 //TODO: dont know what to do yet
             },
             success:function(msg){
-                window.location.replace("../surveyobi");
+                window.location.replace("/");
             },
             error: function(){
                 alert("failure");

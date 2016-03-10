@@ -99,7 +99,7 @@ $(document).ready(function(){
             	 window.location.replace("./Event.php");
             	}else{
             		//console.log("wrong");
-            		window.location.replace("../Surveyobi");
+            		window.location.replace("/");
             	}
             },
             error: function(){
