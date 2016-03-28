@@ -103,7 +103,7 @@
             </div>
             <div class="row">
                <div class="col-md-4 col-sm-4  col-xs-9 pull-left">
-                  <img title="Ask a question" src="https://d1rp2jn8dkvrz.cloudfront.net/assets/how-it-works-1-8ea71b3a390eefa0e97de9f290fe157b.png" class="img-responsive margin-img" alt="Type in the question you want to ask">
+                  <!-- <img title="Ask a question" src="https://d1rp2jn8dkvrz.cloudfront.net/assets/how-it-works-1-8ea71b3a390eefa0e97de9f290fe157b.png" class="img-responsive margin-img" alt="Type in the question you want to ask"> -->
                   <h3 class="header3">
                      <span class="border-circle">
                      1
@@ -113,7 +113,7 @@
                   <p class="color-p">Sign up on the web and write the question you want to ask. You can start from scratch or use one of our best practice examples.</p>
                </div>
                <div class="col-md-4 col-sm-4 col-xs-9 pull-left">
-                  <img title="The voting view" src="https://d1rp2jn8dkvrz.cloudfront.net/assets/how-it-works-2-dfa362b86b8b1af0c9c35adad0b3b8c2.png" class="illu img-responsive center-block" alt="The audience votes on your question">
+                  <!-- <img title="The voting view" src="https://d1rp2jn8dkvrz.cloudfront.net/assets/how-it-works-2-dfa362b86b8b1af0c9c35adad0b3b8c2.png" class="illu img-responsive center-block" alt="The audience votes on your question"> -->
                   <h3 class="header3">
                      <span class="border-circle">
                      2
@@ -123,7 +123,7 @@
                   <p class="color-p">Your audience goes to the voting website, enters the code for your presentation and votes. No installation or setup needed.</p>
                </div>
                <div class="col-md-4 col-sm-4  col-xs-9 pull-left">
-                  <img title="The results of your question" src="https://d1rp2jn8dkvrz.cloudfront.net/assets/how-it-works-3-269795c85cc865f9fe3834edbf69d4db.png" class="illu img-responsive center-block" alt="The votes gathered are shown in real-time">
+                  <!-- <img title="The results of your question" src="https://d1rp2jn8dkvrz.cloudfront.net/assets/how-it-works-3-269795c85cc865f9fe3834edbf69d4db.png" class="illu img-responsive center-block" alt="The votes gathered are shown in real-time"> -->
                   <h3 class="header3">
                      <span class="border-circle">
                      3

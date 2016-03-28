@@ -8,18 +8,18 @@ session_start();
 // $Database = new mysqli($server, $user, $pass, $db);
 
 
-// $server = 'localhost';
-// $user = 'root';
-// $pass = '';
-// $db = 'surveyobi';
-// $Database = new mysqli($server, $user, $pass, $db);
-
-
-$server = '94.73.147.210';
-$user = 'u6523146_edoram';
-$pass = '4kYe8AD96';
-$db = 'u6523146_surveyobi';
+$server = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'surveyobi';
 $Database = new mysqli($server, $user, $pass, $db);
+
+
+// $server = '94.73.147.210';
+// $user = 'u6523146_edoram';
+// $pass = '4kYe8AD96';
+// $db = 'u6523146_surveyobi';
+// $Database = new mysqli($server, $user, $pass, $db);
 
 
 // error reporting

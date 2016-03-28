@@ -6,14 +6,31 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/event.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<?php include 'sidebar.php'; ?>
+			<?php 
+      if($_SESSION['user_type'] =='custom'){
+        include 'custom_sidebar.php'; 
+      }else{
+        include 'sidebar.php'; 
+      }
+      ?>
+
+      <?php 
+            $stmt=$Database->prepare("SELECT  survey_name FROM survey where survey_id=?");
+            $stmt->bind_param('i',$_REQUEST['event_id']);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($survey_name);
+            $stmt->fetch();
+            $stmt->close();
+            ?>
 			<div class="col-sm-9">
-				<h1 class="Event-user-name"><?php echo $_SESSION['event_name']; ?></h1><br/>
+				<h1 class="Event-user-name"><?php echo $survey_name; ?></h1><br/>
 				<div class="row">
 					<div class="col-sm-12 question-create">
 						<div class="row">
@@ -23,26 +40,26 @@
 									<p>Choose which type of question to ask your audience.</p>
 								</div>
 								<div class="col-sm-9 question-padding">
-									<div class="set-width">
-										<a href="">Multiple choice</a>
+									<div class="set-width" id="multiple_choice">
+										<p>Multiple choice</p>
 									</div>
-									<div class="set-width">
-										<a href="">Word cloud</a>
+									<div class="set-width" id="word_cloud">
+										<p>Word cloud</p>
 									</div>
-									<div class="set-width">
-										<a href="">Scales</a>
+									<div class="set-width" id="scales">
+										<p>Scales</p>
 									</div>
-									<div class="set-width">
-										<a href="">Open ended</a>
+									<div class="set-width" id="open_ended">
+										<p>Open ended</a>
 									</div>
-									<div class="set-width">
-										<a href="">100 points</a>
+									<div class="set-width" id="100_points">
+										<p>100 points</p>
 									</div>
-									<div class="set-width">
-										<a href="">2 by 2 Matrix</a>
+									<div class="set-width" id="matrix">
+										<p >2 by 2 Matrix</p>
 									</div>
-									<div class="set-width">
-										<a href="">Who will win?</a>
+									<div class="set-width" id="who_win">
+										<p >Who will win?</p>
 									</div>
 								</div>
 							</div>
@@ -58,7 +75,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row" id="changeable-content">
 							<div class="col-sm-12">
 								<div class="col-sm-3">
 									<h2>Alternatives</h2>
@@ -69,6 +86,7 @@
 									<input type="text" class="form-control" placeholder="Alternative2"></input>
 									<input type="button" class="form-control" value="Add alternative"></input>
 								</div>
+                				<input type="button" class="btn btn-success pull-right" value="Save"></input>
 							</div>
 						</div>
 					</div>
@@ -81,87 +99,7 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/jquery.validate.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
-  <script>
-    function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      //console.log(response);
-      console.log("connected");
-      //testAPI(response);
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      console.log("not authorized!!");
-      window.location.replace("../surveyobi");
-    } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      console.log("Please log in!!!!");
-      window.location.replace("../surveyobi");
-    }
-  }
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '513840392122166',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.5' // use graph api version 2.5
-  });
-
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-};
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-
-  function logout(){
-    FB.logout(function(response) {
-      console.log("successfully logged out!!");
-    });
-    $.ajax({
-      type:"post",
-      url: "facebook-logout.php",
-      beforeSend: function(){
-                //TODO: dont know what to do yet
-            },
-            success:function(msg){
-                window.location.replace("/");
-            },
-            error: function(){
-                alert("failure");
-            }
-
-        }); 
-  }
-</script>
+  <script type="text/javascript" src="js/question_create.js"></script>
 </body>
 </html>
 

@@ -9,6 +9,7 @@ if($_SESSION['user_name'] != ''){
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/event.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <div class="modal fade" role="dialog" id="event-create-modal">
@@ -40,8 +41,9 @@ if($_SESSION['user_name'] != ''){
     <div class="row">
       <?php include 'custom_sidebar.php'; ?>
       <div class="col-sm-9">
-        <h1 class="Event-user-name">Welcome <?php echo $_SESSION['user_name']; ?>!!</h1><br/>
-        <input type="button" class="btn btn-primary custom-create-event" id="create-event-button" value="Create Event"></input><br/>
+        <h1 class="Event-user-name"><?php echo $_SESSION['user_name'].'\'s presentations'; ?>!!</h1><br/>
+        <input type="button" class="btn btn-primary custom-create-event" id="create-event-button" value="Create Event"></input>
+        <input type="button" class="btn btn-primary custom-create-event" id="use-example-button" value="Use example"></input><br/>
 
         <table id="myTable" class="table tablesorter">
           <thead class="thead-inverse">
@@ -49,28 +51,26 @@ if($_SESSION['user_name'] != ''){
               <th>#</th>
               <th>Your Events</th>
               <th>Last changed</th>
-              <th>Votes</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <?php 
+            $stmt=$Database->prepare("SELECT  survey_id,survey_name,survey_status,survey_update_date,user_id FROM survey");
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($survey_id,$survey_name,$survey_status,$survey_update_date,$user_id);
+
+            while($stmt->fetch()){
+             echo '<tr>
+              <th scope="row">'.$survey_id.'</th>
+              <td><a href="./question-create.php?uid='.$user_id.'&event_id='.$survey_id.'">'.$survey_name.'</a></td>
+              <td>'.$survey_update_date.'</td>
+              <td>'.$survey_status.'</td>
+            </tr>';
+            }
+            $stmt->close();
+            ?>
           </tbody>
         </table>
       </div>
